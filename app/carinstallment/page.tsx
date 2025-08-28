@@ -52,7 +52,7 @@ export default function CarInstallmentCalculator() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100"
+      className="flex flex-col items-center justify-center min-h-screen  bg-gray-100"
       style={{
         backgroundImage: "url('/images/fast2.jpg')",
         backgroundSize: "container",
@@ -64,6 +64,7 @@ export default function CarInstallmentCalculator() {
           <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
             Home
           </button>
+          x
         </Link>
       </div>
 

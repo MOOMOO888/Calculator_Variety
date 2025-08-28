@@ -29,21 +29,21 @@ export default function BMICalculator() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen p-4 bg-slate-100"
+      className="flex flex-col items-center justify-start min-h-screen p-4"
       style={{
         backgroundImage: "url('/images/ex1.jpg')",
-        backgroundSize: "container",
+        backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="w-full flex justify-start  p-4">
+      <div className="w-full flex justify-start">
         <Link href="/">
           <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
             Home
           </button>
         </Link>
       </div>
-      <div className="w-full max-w-md bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 transform transition-all hover:scale-105 duration-300">
+      <div className="w-full max-w-md bg-white p-8 rounded-3xl shadow-2xl border mt-10 border-gray-100 transform transition-all hover:scale-105 duration-300">
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6">
           <div className="p-3 bg-indigo-100 rounded-full">
