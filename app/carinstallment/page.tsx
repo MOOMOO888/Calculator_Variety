@@ -64,7 +64,6 @@ export default function CarInstallmentCalculator() {
           <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
             Home
           </button>
-          x
         </Link>
       </div>
 
