@@ -12,7 +12,7 @@ export default function Page() {
               alt="Logo"
               width={180}
               height={160}
-              className="rounded-2xl  object-contain"
+              className="rounded-2xl object-contain"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 tracking-tight">
