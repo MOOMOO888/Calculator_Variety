@@ -119,7 +119,7 @@ export default function MoneyShareCalculator() {
             </button>
             <button
               onClick={clearInputs}
-              className="w-full bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition duration-200 transform hover:scale-105"
+              className="w-full bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:text-white hover:bg-red-600 transition duration-200 transform hover:scale-105"
             >
               ล้างข้อมูล
             </button>

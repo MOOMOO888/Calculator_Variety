@@ -192,7 +192,7 @@ export default function CarInstallmentCalculator() {
           </button>
           <button
             onClick={clear}
-            className="bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-full shadow-lg hover:bg-gray-400 transform hover:scale-105 transition-all duration-300 w-full"
+            className="bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-full shadow-lg hover:text-white hover:bg-red-600 transform hover:scale-105 transition-all duration-300 w-full"
           >
             ล้างข้อมูล
           </button>
