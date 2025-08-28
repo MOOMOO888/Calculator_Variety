@@ -13,7 +13,7 @@ export default function CarInstallmentCalculator() {
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [error, setError] = useState("");
 
-  const calculate = () => {
+  const calculateMonthlyPayment = () => {
     const price = parseFloat(carPrice);
     const interest = parseFloat(interestRate);
 
@@ -31,11 +31,13 @@ export default function CarInstallmentCalculator() {
 
     setError("");
 
-    const downPaymentAmount = price * (downPayment / 100);
-    const loanAmount = price - downPaymentAmount;
-    const totalInterest = (loanAmount * interest * (loanTerm / 12)) / 100;
-    const totalPayment = loanAmount + totalInterest;
-    const monthly = totalPayment / loanTerm;
+    const principal = price - price * (downPayment / 100);
+    const monthlyInterestRate = interest / 100 / 12;
+    const n = loanTerm;
+
+    const monthly =
+      (principal * monthlyInterestRate) /
+      (1 - Math.pow(1 + monthlyInterestRate, -n));
 
     setMonthlyPayment(monthly);
   };
@@ -52,22 +54,22 @@ export default function CarInstallmentCalculator() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen  bg-gray-100"
+      className="flex flex-col items-center justify-start min-h-screen bg-gray-100"
       style={{
         backgroundImage: "url('/images/fast2.jpg')",
-        backgroundSize: "container",
+        backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="w-full flex justify-start  p-4">
+      <div className="w-full flex justify-start p-4">
         <Link href="/">
-          <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
+          <button className="bg-white text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-blue-500 transition hover:text-white duration-200">
             Home
           </button>
         </Link>
       </div>
 
-      <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-2xl text-center ">
+      <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-2xl text-center">
         <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">
           Car Installment Calculator
         </h1>
@@ -78,7 +80,7 @@ export default function CarInstallmentCalculator() {
         <div className="w-40 p-3 rounded-full flex items-center justify-center mx-auto mb-8">
           <Image
             src="/images/car.png"
-            alt="Money Share"
+            alt="Car"
             width={80}
             height={30}
             className="relative z-10 rounded-lg"
@@ -86,29 +88,61 @@ export default function CarInstallmentCalculator() {
         </div>
 
         <div className="bg-gray-50 p-6 rounded-2xl shadow-inner mb-6 text-left space-y-4">
-          <input
-            type="text"
-            placeholder="ชื่อผู้คำนวณ"
-            className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <div className="space-y-4">
+            {/* ชื่อผู้คำนวณ */}
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                ชื่อผู้คำนวณ
+              </label>
+              <input
+                type="text"
+                id="name"
+                placeholder="ป้อนชื่อผู้คำนวณ"
+                className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
 
-          <input
-            type="number"
-            placeholder="ราคารถ (บาท)"
-            className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
-            value={carPrice}
-            onChange={(e) => setCarPrice(e.target.value)}
-          />
+            {/* ราคารถ */}
+            <div>
+              <label
+                htmlFor="carPrice"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                ราคารถ (บาท)
+              </label>
+              <input
+                type="number"
+                id="carPrice"
+                placeholder="ป้อนราคารถ"
+                className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
+                value={carPrice}
+                onChange={(e) => setCarPrice(e.target.value)}
+              />
+            </div>
 
-          <input
-            type="number"
-            placeholder="ดอกเบี้ยต่อปี (%)"
-            className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
-            value={interestRate}
-            onChange={(e) => setInterestRate(e.target.value)}
-          />
+            {/* ดอกเบี้ยต่อปี */}
+            <div>
+              <label
+                htmlFor="interestRate"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                ดอกเบี้ยต่อปี (%)
+              </label>
+              <input
+                type="number"
+                id="interestRate"
+                placeholder="ป้อนดอกเบี้ย"
+                className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
+                value={interestRate}
+                onChange={(e) => setInterestRate(e.target.value)}
+              />
+            </div>
+          </div>
 
           <div>
             <p className="text-gray-700 font-medium mb-2">เงินดาวน์ (%)</p>
@@ -138,7 +172,7 @@ export default function CarInstallmentCalculator() {
               onChange={(e) => setLoanTerm(parseInt(e.target.value))}
               className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
             >
-              {[24, 36, 48, 60, 72].map((month) => (
+              {[12, 24, 36, 48, 60, 72].map((month) => (
                 <option key={month} value={month}>
                   {month} เดือน
                 </option>
@@ -151,7 +185,7 @@ export default function CarInstallmentCalculator() {
 
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
           <button
-            onClick={calculate}
+            onClick={calculateMonthlyPayment}
             className="bg-indigo-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 w-full"
           >
             คำนวณ

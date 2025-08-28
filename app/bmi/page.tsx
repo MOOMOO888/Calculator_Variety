@@ -38,7 +38,7 @@ export default function BMICalculator() {
     >
       <div className="w-full flex justify-start">
         <Link href="/">
-          <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
+          <button className="bg-white text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-blue-500 transition hover:text-white duration-200">
             Home
           </button>
         </Link>
@@ -69,21 +69,37 @@ export default function BMICalculator() {
 
         {/* Input Fields */}
         <div className="space-y-6 mb-6">
+          {/* ความสูง */}
           <div className="relative mb-6">
+            <label
+              htmlFor="height"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              ความสูง (cm)
+            </label>
             <input
               type="number"
+              id="height"
               min="0"
               step="0.1"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
-              placeholder="ความสูง (cm)"
+              placeholder="ป้อนความสูง (cm)"
               className="w-full border border-gray-300 rounded-lg px-4 py-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
+          {/* น้ำหนัก */}
           <div className="relative mb-6">
+            <label
+              htmlFor="weight"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              น้ำหนัก (กก.)
+            </label>
             <input
               type="number"
+              id="weight"
               min="0"
               step="0.1"
               value={weight}

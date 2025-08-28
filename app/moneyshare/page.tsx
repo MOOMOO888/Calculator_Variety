@@ -38,7 +38,7 @@ export default function MoneyShareCalculator() {
     >
       <div className="w-full flex justify-start p-4">
         <Link href="/">
-          <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
+          <button className="bg-white text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-blue-500 transition hover:text-white duration-200">
             Home
           </button>
         </Link>
@@ -67,7 +67,14 @@ export default function MoneyShareCalculator() {
 
           {/* Inputs */}
           <div className="space-y-6 mb-6">
+            {/* จำนวนเงิน */}
             <div className="relative">
+              <label
+                htmlFor="amount"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                จำนวนเงิน
+              </label>
               <input
                 type="number"
                 id="amount"
@@ -78,7 +85,14 @@ export default function MoneyShareCalculator() {
               />
             </div>
 
+            {/* จำนวนคน */}
             <div className="relative">
+              <label
+                htmlFor="people"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                จำนวนคน
+              </label>
               <input
                 type="number"
                 id="people"

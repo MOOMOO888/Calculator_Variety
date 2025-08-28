@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-6xl text-center">
-        <div className="mb-10">
+    <div className="flex flex-col items-center justify-center min-h-screen p-10 bg-amber-200">
+      <div className="bg-amber-100 p-8 rounded-3xl shadow-4xl w-full max-w-6xl text-center">
+        <div className="mb-8">
           <div className="flex justify-center mb-4">
             <Image
               src="/images/calcu.png"

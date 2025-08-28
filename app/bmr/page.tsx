@@ -88,7 +88,7 @@ export default function BMRCalculator() {
     >
       <div className="w-full flex justify-start  p-4">
         <Link href="/">
-          <button className="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-gray-400 transition duration-200">
+          <button className="bg-white text-gray-800 font-bold py-2 px-6 rounded-full shadow hover:bg-blue-500 transition hover:text-white duration-200">
             Home
           </button>
         </Link>
@@ -112,11 +112,18 @@ export default function BMRCalculator() {
           </div>
         </div>
 
-        <div className="space-y-4 mb-6">
-          {/* Weight */}
+        <div className="space-y-6 mb-6">
+          {/* น้ำหนัก */}
           <div className="relative">
+            <label
+              htmlFor="weight"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              น้ำหนัก (กก.)
+            </label>
             <input
               type="number"
+              id="weight"
               placeholder="ป้อนน้ำหนัก (กิโลกรัม)"
               className="w-full text-gray-800 border border-gray-300 rounded-lg px-3 py-2 focus:ring-4 focus:ring-indigo-300 focus:border-indigo-600 transition duration-200"
               value={weight}
@@ -126,10 +133,17 @@ export default function BMRCalculator() {
             />
           </div>
 
-          {/* Height */}
+          {/* ความสูง */}
           <div className="relative">
+            <label
+              htmlFor="height"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              ความสูง (ซม.)
+            </label>
             <input
               type="number"
+              id="height"
               placeholder="ป้อนความสูง (เซนติเมตร)"
               className="w-full text-gray-800 border border-gray-300 rounded-lg px-3 py-2 focus:ring-4 focus:ring-indigo-300 focus:border-indigo-600 transition duration-200"
               value={height}
@@ -139,10 +153,17 @@ export default function BMRCalculator() {
             />
           </div>
 
-          {/* Age */}
+          {/* อายุ */}
           <div className="relative">
+            <label
+              htmlFor="age"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              อายุ (ปี)
+            </label>
             <input
               type="number"
+              id="age"
               placeholder="ป้อนอายุ (ปี)"
               className="w-full text-gray-800 border border-gray-300 rounded-lg px-3 py-2 focus:ring-4 focus:ring-indigo-300 focus:border-indigo-600 transition duration-200"
               value={age}
